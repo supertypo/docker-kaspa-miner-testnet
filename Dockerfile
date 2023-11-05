@@ -6,7 +6,6 @@ ENV PATH=/app:$PATH
 
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
-    dumb-init \
     wget \
     ca-certificates && \
   rm -rf /var/lib/apt/lists/*
@@ -17,7 +16,5 @@ RUN wget https://github.com/tmrlvi/kaspa-miner/releases/download/v0.2.1-GPU-0.7/
 
 USER nobody
 
-ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-
-#CMD ["kaspa-miner", "-p", "16210", "-t", "1", "-a", "kaspatest:qrxxd84m37wc09awj8g69pz7s6j923fk4jhsm8a4khpdpgxe5mzqv2u0je8ku"]
+CMD ["kaspa-miner", "-p", "16210", "-t", "1", "-a", "kaspatest:qrxxd84m37wc09awj8g69pz7s6j923fk4jhsm8a4khpdpgxe5mzqv2u0je8ku"]
 
